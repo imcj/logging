@@ -1,0 +1,6 @@
+package logging;
+
+interface IBaseLogger
+{
+    
+}

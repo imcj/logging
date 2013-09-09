@@ -1,0 +1,6 @@
+package logging;
+
+class Handler
+{
+
+}
