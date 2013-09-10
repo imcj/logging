@@ -2,17 +2,17 @@ package logging;
 
 class Filter implements IFilter
 {
-	public var name(default, null):String;
+    public var name(default, null):String;
     public var nameSize(default, null):Int;
 
-	public function new(name:String="")
-	{
-		this.name = name;
+    public function new(name:String="")
+    {
+        this.name = name;
         nameSize = name.length;
-	}
+    }
 
-	public function filter(record:LogRecord):Bool
-	{
+    public function filter(record:LogRecord):Bool
+    {
         if (0 == nameSize)
             return true;
         else if (name == record.name)
@@ -23,5 +23,5 @@ class Filter implements IFilter
             return true;
 
         return record.name.substr(nameSize, 1) == ".";
-	}
+    }
 }

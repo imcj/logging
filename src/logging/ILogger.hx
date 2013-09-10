@@ -10,6 +10,6 @@ interface ILogger implements IBaseLogger
     var handlers(default, null):Array<IHandler>;
     var filterer(default, null):Filterer;
 
-	function log(message:String):Void;
+    function log(message:String):Void;
     function getChild(suffix:String):ILogger;
 }
