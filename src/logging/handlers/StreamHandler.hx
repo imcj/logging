@@ -1,0 +1,45 @@
+package logging.handlers;
+
+import haxe.io.Output;
+
+import logging.Handler;
+import logging.IHandler;
+
+class StreamHandler extends Handler, implements IHandler
+{
+    var stream:Output;
+
+    public function new(stream:Output=null)
+    {
+        super();
+        name = 'StreamHandler';
+        #if php || neko || cpp
+        if (null == stream)
+            stream = Sys.stderr();
+        #end
+        this.stream = stream;
+    }
+
+    override public function flush()
+    {
+        stream.flush();
+    }
+
+    override public function emit(record:LogRecord):Void
+    {
+        var message:String;
+        try {
+            message = format(record);
+            #if as3
+            trace(message);
+            #else
+            stream.writeString(message);
+            stream.writeString("\n");
+            stream.flush();
+            #end
+        } catch (e:Dynamic) {
+            trace(e);
+            trace(haxe.Stack.toString(haxe.Stack.exceptionStack()));
+        }
+    }
+}

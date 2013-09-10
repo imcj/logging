@@ -3,7 +3,7 @@ package logging;
 class Manager
 {
     public var root:RootLogger;
-    public var disable:Bool;
+    public var disable:Int;
     public var emittedNoHandlerWarning:Bool;
     public var loggerMap(default, null):StringMap<IBaseLogger>;
     public var loggerFactory(default, default):ILoggerFactory;
@@ -11,6 +11,7 @@ class Manager
     public function new(root)
     {
         this.root = root;
+        disable = 0;
         loggerMap = new StringMap<IBaseLogger>();
         loggerFactory = LoggerFactory.shared();
         emittedNoHandlerWarning = false;
@@ -33,6 +34,7 @@ class Manager
                 _fixupChildren(placeholder, logger);
                 _fixupParents(logger);
             }
+            logger = cast(baseLogger);
         } else {
             logger = loggerFactory.create(name);
             logger.manager = this;
@@ -46,20 +48,20 @@ class Manager
     function _fixupParents(alogger:ILogger)
     {
         var name:String = alogger.name;
-        trace("Fixup " + name);
+        // disable logging debug trace("Fixup " + name);
         var parent_name:String;
         var i:Int = name.lastIndexOf(".");
         var rv:ILogger = null;
         var obj:IBaseLogger;
         while (i > 0 && null == rv ) {
             parent_name = name.substring(0, i);
-            trace(Std.format("parent name $parent_name"));
+            // disable logging debug trace(Std.format("parent name $parent_name"));
 
             if (!loggerMap.exists(parent_name))
                 loggerMap.set(parent_name, new PlaceHolder(alogger));
             else {
                 obj = loggerMap.get(parent_name);
-                trace(obj);
+                // disable logging debug trace(obj);
                 if (Std.is(obj, ILogger))
                     rv = cast obj;
                 else if (Std.is(obj, IPlaceHolder))

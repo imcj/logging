@@ -67,8 +67,9 @@ class LogRecord
     function cloneStringMap<T>(hash:StringMap<T>):StringMap<T>
     {
         var cloned:StringMap<T> = new StringMap<T>();
-        for (key in hash.keys())
-            cloned.set(key, hash.get(key));
+        if (null != hash)
+            for (key in hash.keys())
+                cloned.set(key, hash.get(key));
 
         return cloned;
     }

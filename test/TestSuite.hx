@@ -2,6 +2,8 @@ import massive.munit.TestSuite;
 
 import logging.FilterTest;
 import logging.FormatterTest;
+import logging.LoggerTest;
+import logging.LoggingTest;
 import logging.LogRecordTest;
 import logging.ManagerTest;
 
@@ -19,6 +21,8 @@ class TestSuite extends massive.munit.TestSuite
 
 		add(logging.FilterTest);
 		add(logging.FormatterTest);
+		add(logging.LoggerTest);
+		add(logging.LoggingTest);
 		add(logging.LogRecordTest);
 		add(logging.ManagerTest);
 	}

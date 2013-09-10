@@ -4,8 +4,8 @@ class T
 {
     public static function main()
     {
-        trace("Hello");
+        // disable logging debug trace("Hello");
         var l1 = logging.Logging.getLogger("com");
-        trace(l1);
+        // disable logging debug trace(l1);
     }
 }
