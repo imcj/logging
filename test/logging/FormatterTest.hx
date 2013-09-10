@@ -3,7 +3,6 @@ package logging;
 class FormatterTest
 {
     @Test
-    @TestDebug
     public function testFormat()
     {
         var record = new LogRecord("name2", 10, "pathname", 0, "${name}", 
