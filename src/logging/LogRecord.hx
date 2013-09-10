@@ -17,9 +17,12 @@ class LogRecord
 	public var pathname(default, null):String;
 	public var lineno(default, null):Int;
 	public var message(default, null):String;
-	public var arguments(default, null):Array<Dynamic>;
+	public var arguments(default, null):StringMap<Dynamic>;
 	public var exc_info(default, null):String;
 	public var func(default, null):String;
+	public var asctime(default, default):String;
+	public var created(default, null):Int;
+	public var millisecond(default, null):Int;
 
 	public function new(name:String, level:Int, pathname:String, lineno:Int,
 						message:String, arguments:Dynamic)/*,
@@ -27,8 +30,12 @@ class LogRecord
 	{
 		this.name = name;
 		this.level = level;
+		this.levelname = Level.getName(level);
+		this.levelno = level;
 		this.pathname = pathname;
 		this.lineno = lineno;
+		this.created = Std.int(Date.now().getTime() / 1000);
+		this.millisecond = Std.int((haxe.Timer.stamp() - this.created) * 1000);
 
 		var _arguments:StringMap<Dynamic>;
 		if (null == arguments) {
@@ -55,6 +62,27 @@ class LogRecord
 		this.exc_info = exc_info;
 		this.func = func;
 		*/
+	}
+
+	function cloneStringMap<T>(hash:StringMap<T>):StringMap<T>
+	{
+		var cloned:StringMap<T> = new StringMap<T>();
+		for (key in hash.keys())
+			cloned.set(key, hash.get(key));
+
+		return cloned;
+	}
+
+	public function toStringMap():StringMap<String>
+	{
+		var context = cloneStringMap(arguments);
+		var keys = ["name", "level", "levelno", "levelname", "pathname",
+					"lineno", "message", "arguments", "asctime", "created",
+					"millisecond"];
+
+		for (key in keys)
+			context.set(key, Reflect.field(this, key));
+		return context;
 	}
 
 	public function toString():String

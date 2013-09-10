@@ -5,7 +5,6 @@ import massive.munit.Assert;
 class LogRecordTest
 {
     @Test
-    @TestDebug
     public function testConstructor()
     {
         var record = new LogRecord("name", 10, "pathname", 0, "${name}", 

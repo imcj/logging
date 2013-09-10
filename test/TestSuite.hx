@@ -1,5 +1,6 @@
 import massive.munit.TestSuite;
 
+import logging.FormatterTest;
 import logging.LogRecordTest;
 import logging.ManagerTest;
 
@@ -15,6 +16,7 @@ class TestSuite extends massive.munit.TestSuite
 	{
 		super();
 
+		add(logging.FormatterTest);
 		add(logging.LogRecordTest);
 		add(logging.ManagerTest);
 	}

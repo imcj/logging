@@ -27,7 +27,7 @@ class Filterer
 
     public function filter(record:LogRecord):Bool
     {
-        var enable:Int;
+        var enable:Bool = true;
         for (f in filters) {
             if (!f.filter(record)) {
                 enable = false;

@@ -3,7 +3,6 @@ package logging;
 class ManagerTest
 {
     @Test
-    @TestDebug
     function testGetLogger()
     {
         var l1 = Logging.getLogger("com.indvane");
