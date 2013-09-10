@@ -13,7 +13,8 @@ class StreamHandler extends Handler, implements IHandler
     {
         super();
         name = 'StreamHandler';
-        #if php || neko || cpp
+        #if as3
+        #else
         if (null == stream)
             stream = Sys.stderr();
         #end
@@ -38,6 +39,7 @@ class StreamHandler extends Handler, implements IHandler
             stream.flush();
             #end
         } catch (e:Dynamic) {
+            trace("Stream is null " + (null == stream));
             trace(e);
             trace(haxe.Stack.toString(haxe.Stack.exceptionStack()));
         }

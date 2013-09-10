@@ -58,7 +58,6 @@ class Logger implements ILogger
     {
         var logger:ILogger = this;
         while (true) {
-            trace(logger.level);
             #if cpp
             #else
             if (null != logger.level)

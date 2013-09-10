@@ -1,0 +1,14 @@
+{
+    "name": "logging",
+    "license": "MIT",
+    "tags": ["cross","utility","sys","massive"],
+    "description": "",
+    "contributors": ["cj"],
+    "releasenote": "initialze",
+    "version": "0.1.0",
+    "url": "http://github.com/imcj/logging",
+    "dependencies": 
+    {
+        "interpolation"
+    }
+}
