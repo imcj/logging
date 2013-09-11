@@ -1,5 +1,7 @@
 package logging.handlers.socket;
 
+#if flash
+#else
 #if neko
 import neko.vm.Thread;
 #elseif cpp
@@ -36,3 +38,5 @@ class ThreadSocketHandler extends BaseSocketHandler
         thread.sendMessage(format(record));
     }
 }
+
+#end

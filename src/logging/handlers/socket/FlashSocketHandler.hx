@@ -68,7 +68,7 @@ class FlashSocketHandler extends BaseSocketHandler
         connected = true;
         if (0 < cache.length) {
             for (message in cache) {
-                writeLine(bundle.message, message);
+                writeLine(message);
             }
 
             cache = [];

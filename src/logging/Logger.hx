@@ -58,11 +58,15 @@ class Logger implements ILogger
         var logger:ILogger = this;
         while (true) {
             #if cpp
-            #else
+            #elseif !flash
             if (null != logger.level)
                 return logger.level;
             #end
-            if (0 != logger.level)                return logger.level;
+            if (null == logger)
+                break;
+                
+            if (0 != logger.level)                
+                return logger.level;
 
             logger = logger.parent;
         }
