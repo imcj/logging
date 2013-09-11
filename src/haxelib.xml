@@ -1,7 +1,7 @@
 <project name="logging" url="http://github.com/imcj/logging" license="MIT">
     <user name="imcj"/>
     <description><![CDATA[]]></description>
-    <version name="0.1.0"><![CDATA[Initialize.]]></version>
+    <version name="0.1.1"><![CDATA[Initialize.]]></version>
     <tag v="cross"/>
     <tag v="utility"/>
     <tag v="sys"/>

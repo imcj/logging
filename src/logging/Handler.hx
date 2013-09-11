@@ -48,7 +48,7 @@ class Handler implements IFilterer
         return available;
     }
 
-    function emit(record:LogRecord)
+    public function emit(record:LogRecord)
     {
         throw "Not implement.";
     }

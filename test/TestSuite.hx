@@ -6,6 +6,7 @@ import logging.LoggerTest;
 import logging.LoggingTest;
 import logging.LogRecordTest;
 import logging.ManagerTest;
+import logging.SocketHandlerTest;
 
 /**
  * Auto generated Test Suite for MassiveUnit.
@@ -25,5 +26,6 @@ class TestSuite extends massive.munit.TestSuite
 		add(logging.LoggingTest);
 		add(logging.LogRecordTest);
 		add(logging.ManagerTest);
+		add(logging.SocketHandlerTest);
 	}
 }
