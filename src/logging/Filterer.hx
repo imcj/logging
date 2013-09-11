@@ -2,11 +2,16 @@ package logging;
 
 class Filterer implements IFilterer
 {
-    var filters:Array<IFilter>;
+    public var filters(getFilters, null):Array<IFilter>;
 
     public function new()
     {
         filters = [];
+    }
+
+    function getFilters():Array<IFilter>
+    {
+        return this.filters;
     }
 
     public function addFilter(filter:IFilter):Void
@@ -29,14 +34,11 @@ class Filterer implements IFilterer
     {
         var enable:Bool = true;
         for (f in filters) {
-            // disable logging debug trace("Filter <" + f.name + ">.");
-            // disable logging debug trace(f.filter(record));
             if (false == f.filter(record)) {
                 enable = false;
                 break;
             }
         }
-        // disable logging debug trace("Filterer filter record " + record.name + " are " + enable);
 
         return enable;
     }

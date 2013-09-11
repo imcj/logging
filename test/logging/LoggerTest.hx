@@ -23,6 +23,15 @@ class LoggerTest
 
     @Test
     @TestDebug
+    public function testFilter()
+    {
+        logger.handlers.pop();
+
+        logger.info("hello");
+        Assert.areEqual("", stream.readLine());
+    }
+
+    @Test
     public function testLog()
     {
         logger.log(Level.INFO, "hello");
@@ -30,7 +39,6 @@ class LoggerTest
     }
 
     @Test
-    @TestDebug
     public function testInfo()
     {
         logger.info("hello");
@@ -38,7 +46,6 @@ class LoggerTest
     }
 
     @Test
-    @TestDebug
     public function testDebug()
     {
         logger.debug("hello");
@@ -46,7 +53,6 @@ class LoggerTest
     }
 
     @Test
-    @TestDebug
     public function testWarning()
     {
         logger.warn("hello");
@@ -54,7 +60,6 @@ class LoggerTest
     }
 
     @Test
-    @TestDebug
     public function testError()
     {
         logger.error("hello");
@@ -62,7 +67,6 @@ class LoggerTest
     }
 
     @Test
-    @TestDebug
     public function testCritical()
     {
         logger.critical("hello");

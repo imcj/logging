@@ -12,9 +12,8 @@ class Logger implements ILogger
     public var propagate(default, default):Bool;
     public var handlers(default, null):Array<IHandler>;
     public var filterer(default, null):Filterer;
-    // public var formatter(default, default):Formatter;
+    public var filters(getFilters, null):Array<IFilter>;
     static public var root(default, default):RootLogger;
-    // static public var manager:Manager = new Manager(root);
 
     public function new(name:String, level:Int=0)
     {
@@ -63,8 +62,7 @@ class Logger implements ILogger
             if (null != logger.level)
                 return logger.level;
             #end
-            if (0 != logger.level) //|| null != logger.level)
-                return logger.level;
+            if (0 != logger.level)                return logger.level;
 
             logger = logger.parent;
         }
@@ -74,7 +72,6 @@ class Logger implements ILogger
 
     public function isEnableFor(level:Int):Bool
     {
-        // trace(manager);
         if (manager.disable >= level)
             return false;
 
@@ -138,7 +135,6 @@ class Logger implements ILogger
 
     function handle(record:LogRecord)
     {
-        // disable logging debug trace("Logger filter " + filterer.filter(record));
         if ((! this.disabled) && filterer.filter(record))
             callHandlers(record);
     }
@@ -147,13 +143,8 @@ class Logger implements ILogger
     {
         var _logger:ILogger = this;
         var found:Int = 0;
-        // disable logging debug trace("Call handlers");
         while (null != _logger) {
-            // disable logging debug trace("Logger " + _logger.name + " has " + handlers.length + " handler.");
             for (handler in _logger.handlers) {
-                // disable logging debug trace("Logger handler " + handler.name);
-                // disable logging debug trace("Record level " + Level.getName(record.levelno) + " Handler level "
-                //     + Level.getName(handler.level));
                 found += 1;
                 if (record.levelno >= handler.level)
                     handler.handle(record);
@@ -166,7 +157,6 @@ class Logger implements ILogger
         }
 
         if (0 == found && !manager.emittedNoHandlerWarning) {
-            // error
             manager.emittedNoHandlerWarning = true;
         }
     }
@@ -175,7 +165,6 @@ class Logger implements ILogger
     {
         if (root != this)
             suffix = [name, suffix].join(".");
-        // disable logging debug trace("get child " + suffix);
 
         return manager.getLogger(suffix);
     }
@@ -188,5 +177,10 @@ class Logger implements ILogger
     public function notEqual(logger:ILogger):Bool
     {
         return !equal(logger);
+    }
+
+    function getFilters():Array<IFilter>
+    {
+        return this.filterer.filters;
     }
 }

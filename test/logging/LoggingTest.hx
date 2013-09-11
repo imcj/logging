@@ -17,7 +17,6 @@ class LoggingTest
     }
 
     @Test
-    @TestDebug
     public function testLog()
     {
         Logging.log(Level.INFO, "hello");
@@ -25,7 +24,6 @@ class LoggingTest
     }
 
     @Test
-    @TestDebug
     public function testInfo()
     {
         Logging.info("hello");
@@ -33,7 +31,6 @@ class LoggingTest
     }
 
     @Test
-    @TestDebug
     public function testDebug()
     {
         Logging.debug("hello");
@@ -41,7 +38,6 @@ class LoggingTest
     }
 
     @Test
-    @TestDebug
     public function testWarning()
     {
         Logging.warn("hello");
@@ -49,7 +45,6 @@ class LoggingTest
     }
 
     @Test
-    @TestDebug
     public function testError()
     {
         Logging.error("hello");
@@ -57,7 +52,6 @@ class LoggingTest
     }
 
     @Test
-    @TestDebug
     public function testCritical()
     {
         Logging.critical("hello");

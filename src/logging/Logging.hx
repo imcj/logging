@@ -82,7 +82,6 @@ class Logging
         else
             logger = manager.getLogger(name);
 
-        // trace("Get logger name is " + name + " and logger is null " + (null == logger));
         return logger;
     }
 }

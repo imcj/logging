@@ -13,8 +13,7 @@ class StreamHandler extends Handler, implements IHandler
     {
         super();
         name = 'StreamHandler';
-        #if as3
-        #else
+        #if (php || neko ||cpp)
         if (null == stream)
             stream = Sys.stderr();
         #end

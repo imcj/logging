@@ -14,7 +14,6 @@ class FilterTest
     }
 
     @Test
-    @TestDebug
     public function testFilter()
     {
         var filter:IFilter = new Filter("me.imcj");
@@ -22,7 +21,6 @@ class FilterTest
     }
 
     @Test
-    @TestDebug
     public function testFilterRecordNameAreEqual()
     {
         var filter:IFilter = new Filter("me.imcj.FilterTest");
@@ -30,7 +28,6 @@ class FilterTest
     }
 
     @Test
-    @TestDebug
     public function testFilterFailure()
     {
         var filter:IFilter = new Filter("com.imcj");
@@ -38,7 +35,6 @@ class FilterTest
     }
 
     @Test
-    @TestDebug
     public function testFilterIsEmpty()
     {
         var filter:IFilter = new Filter("");
@@ -46,7 +42,6 @@ class FilterTest
     }
 
     @Test
-    @TestDebug
     public function testFilterChildArePass()
     {
         var filter:IFilter = new Filter("me.imcj");

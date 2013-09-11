@@ -32,8 +32,7 @@ class TestMain
 
 		var runner:TestRunner = new TestRunner(client); 
 		runner.addResultClient(httpClient);
-		//runner.addResultClient(new HTTPClient(new JUnitReportClient()));
-		
+				
 		runner.completionHandler = completionHandler;
 		runner.run(suites);
 	}
@@ -54,8 +53,7 @@ class TestMain
 				Sys.exit(0);
 			#end
 		}
-		// if run from outside browser can get error which we can ignore
-		catch (e:Dynamic)
+				catch (e:Dynamic)
 		{
 		}
 	}
