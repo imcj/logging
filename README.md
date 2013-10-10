@@ -50,8 +50,8 @@ TODO
 - Logger.getChild 方法。
 - 利用宏在编译器剔除Log代码。
 - 格式化堆栈信息。
-- 兼容 Haxe 3。
-- NME开发的窗口接收并显示日志。
+- <del>兼容 Haxe 3。</del>
+- 一款好用的日志监视器。
 - More handler:
 	- FileHandler
 	- NullHandler
@@ -71,6 +71,8 @@ TODO
     
 Changelog
 ---------
+
+0.1.2 兼容 Haxe 3。
 
 0.1.1 新增SocketHandler
 
