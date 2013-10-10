@@ -88,6 +88,6 @@ class LogRecord
 
     public function toString():String
     {
-        return Std.format("<LogRecord %>");
+        return "";
     }
 }

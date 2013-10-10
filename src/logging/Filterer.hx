@@ -2,14 +2,14 @@ package logging;
 
 class Filterer implements IFilterer
 {
-    public var filters(getFilters, null):Array<IFilter>;
+    public var filters(get_filters, null):Array<IFilter>;
 
     public function new()
     {
         filters = [];
     }
 
-    function getFilters():Array<IFilter>
+    function get_filters():Array<IFilter>
     {
         return this.filters;
     }

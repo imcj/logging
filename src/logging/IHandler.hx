@@ -1,6 +1,6 @@
 package logging;
 
-interface IHandler implements IFilterer
+interface IHandler extends IFilterer
 {
     var name(default, default):String;
     var level(default, default):Int;

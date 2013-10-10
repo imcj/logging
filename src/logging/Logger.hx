@@ -12,7 +12,7 @@ class Logger implements ILogger
     public var propagate(default, default):Bool;
     public var handlers(default, null):Array<IHandler>;
     public var filterer(default, null):Filterer;
-    public var filters(getFilters, null):Array<IFilter>;
+    public var filters(get_filters, null):Array<IFilter>;
     static public var root(default, default):RootLogger;
 
     public function new(name:String, level:Int=0)
@@ -183,7 +183,7 @@ class Logger implements ILogger
         return !equal(logger);
     }
 
-    function getFilters():Array<IFilter>
+    function get_filters():Array<IFilter>
     {
         return this.filterer.filters;
     }

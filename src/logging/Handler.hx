@@ -6,7 +6,7 @@ class Handler implements IFilterer
     public var level(default, default):Int;
     public var formatter(default, default):IFormatter;
     public var filterer(default, null):IFilterer;
-    public var filters(getFilters, null):Array<IFilter>;
+    public var filters(get_filters, null):Array<IFilter>;
 
     public function new(level:Int=0)
     {
@@ -53,7 +53,7 @@ class Handler implements IFilterer
         throw "Not implement.";
     }
 
-    function getFilters():Array<IFilter>
+    function get_filters():Array<IFilter>
     {
         return filterer.filters;
     }

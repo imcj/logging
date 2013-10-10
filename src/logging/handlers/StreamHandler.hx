@@ -5,7 +5,7 @@ import haxe.io.Output;
 import logging.Handler;
 import logging.IHandler;
 
-class StreamHandler extends Handler, implements IHandler
+class StreamHandler extends Handler implements IHandler
 {
     var stream:Output;
 
@@ -40,7 +40,7 @@ class StreamHandler extends Handler, implements IHandler
         } catch (e:Dynamic) {
             trace("Stream is null " + (null == stream));
             trace(e);
-            trace(haxe.Stack.toString(haxe.Stack.exceptionStack()));
+            trace(haxe.CallStack.toString(haxe.CallStack.exceptionStack()));
         }
     }
 }

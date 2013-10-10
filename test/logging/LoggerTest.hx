@@ -22,13 +22,20 @@ class LoggerTest
     }
 
     @Test
-    @TestDebug
     public function testFilter()
     {
         logger.handlers.pop();
 
         logger.info("hello");
         Assert.areEqual("", stream.readLine());
+    }
+
+    @Test
+    @TestDebug
+    public function testIsEnableFor()
+    {
+        logger.level = logging.Level.DEBUG;
+        trace(cast(logger, Logger).isEnableFor(logging.Level.INFO));
     }
 
     @Test

@@ -2,7 +2,7 @@ package logging;
 
 interface IFilterer
 {
-    var filters(getFilters, null):Array<IFilter>;
+    var filters(get, null):Array<IFilter>;
     function addFilter(filter:IFilter):Void;
     function removeFilter(filter:IFilter):Void;
 

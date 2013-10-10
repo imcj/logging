@@ -1,6 +1,6 @@
 package logging;
 
-interface ILogger implements IBaseLogger, implements IFilterer
+interface ILogger extends IBaseLogger extends IFilterer
 {
     var name(default, null):String;
     var disabled(default, default):Bool;

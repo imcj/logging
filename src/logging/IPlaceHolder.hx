@@ -1,6 +1,6 @@
 package logging;
 
-interface IPlaceHolder implements IBaseLogger
+interface IPlaceHolder extends IBaseLogger
 {
     var loggerMap(default, default):StringMap<ILogger>;
     function append(alogger:ILogger):Void;

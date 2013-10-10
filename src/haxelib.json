@@ -9,6 +9,6 @@
     "url": "http://github.com/imcj/logging",
     "dependencies": 
     {
-        "interpolation"
+        "interpolation": "0.9.1"
     }
 }

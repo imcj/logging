@@ -2,7 +2,7 @@ package logging.handlers.socket;
 
 import logging.Handler;
 
-class BaseSocketHandler extends Handler, implements IHandler
+class BaseSocketHandler extends Handler implements IHandler
 {
     var address:String;
     var host:String;
