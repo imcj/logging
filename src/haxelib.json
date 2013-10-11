@@ -3,9 +3,9 @@
     "license": "MIT",
     "tags": ["cross","utility","sys"],
     "description": "",
-    "contributors": ["cj"],
-    "releasenote": "initialze",
-    "version": "0.1.1",
+    "contributors": ["imcj"],
+    "releasenote": "port to haxe 3.0",
+    "version": "0.1.2",
     "url": "http://github.com/imcj/logging",
     "dependencies": 
     {
