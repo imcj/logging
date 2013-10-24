@@ -14,7 +14,7 @@ class Logger implements ILogger
     public var filterer(default, null):Filterer;
     public var filters(get_filters, null):Array<IFilter>;
     static public var root(default, default):RootLogger;
-	private static var _globalHandler:IHandler;
+    static public var globalHandler:IHandler;
     public function new(name:String, level:Int=0)
     {
         this.name = name;
@@ -26,10 +26,6 @@ class Logger implements ILogger
         propagate = true;
         this.level = level;
     }
-	
-	public static function setGlobalHandler(handler:IHandler):Void {
-		_globalHandler = handler;
-	}
 
     public function addFilter(filter:IFilter):Void
     {
@@ -143,9 +139,9 @@ class Logger implements ILogger
 
     function handle(record:LogRecord)
     {
-		if (_globalHandler != null) {
-			_globalHandler.handle(record);
-		}
+        if (globalHandler != null) {
+            globalHandler.handle(record);
+        }
         if ((! this.disabled) && filterer.filter(record))
             callHandlers(record);
     }
