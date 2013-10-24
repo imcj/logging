@@ -1,6 +1,6 @@
 package logging;
 
-class Handler implements IFilterer
+class Handler implements IHandler
 {
     public var name(default, default):String;
     public var level(default, default):Int;
@@ -48,7 +48,7 @@ class Handler implements IFilterer
         return available;
     }
 
-    public function emit(record:LogRecord)
+    public function emit(record:LogRecord):Void
     {
         throw "Not implement.";
     }
