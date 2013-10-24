@@ -37,7 +37,7 @@ class Handler implements IFilterer
 
     public function format(record:LogRecord):String
     {
-        return formatter.format(record);
+        return this.formatter.format(record);
     }
 
     public function handle(record:LogRecord):Bool

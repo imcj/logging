@@ -1,9 +1,13 @@
 package logging;
 
+#if haxe3
+import haxe.CallStack;
+#end
 class Formatter implements IFormatter
 {
     var fmt:String;
     var datefmt:String;
+    var template:interpolation.Template;
 
     public function new(fmt:String=null, datefmt:String=null)
     {
@@ -12,7 +16,20 @@ class Formatter implements IFormatter
         if (null == datefmt)
             datefmt = "YYYY-MM-DD hh:mm:ss";
         this.fmt = fmt;
-        this.datefmt = fmt;
+        this.datefmt = datefmt;
+
+        template = new interpolation.Template(this.fmt);
+    }
+
+    function getFMT():String
+    {
+        return this.fmt;
+    }
+
+    function formatException(stack):String
+    {
+        return CallStack.toString(stack);
+        // return mconsole.StackHelper.toString(stack);
     }
 
     function formatTime(record:LogRecord)
@@ -34,7 +51,15 @@ class Formatter implements IFormatter
         if (usesTime())
             record.asctime = formatTime(record);
 
-        var template = new interpolation.Template(fmt);
-        return template.safe_substitute(record.toStringMap());
+        var f:String = template.safe_substitute(record.toStringMap());
+
+        if (record.stack != null) {
+            if (record.stackText == null) {
+                record.stackText = formatException(record.stack);
+            }
+            f += record.stackText;
+        }
+
+        return f;
     }
 }

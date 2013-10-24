@@ -7,7 +7,6 @@ import logging.handlers.StreamHandler;
 class SocketHandlerTest
 {
     @Test
-    @TestDebug
     public function testSocketHandler()
     {
         var logger = Logging.getLogger("me.imcj.SocketHandler");

@@ -8,7 +8,9 @@ logging是Python logging的移植，再造轮子是因为mconsole没有提供过
 
 和所有的日志一样，提供一个静态的输出方法。
 
-    logging.Logging.info("hello");
+	import logging.Logging.info;
+
+    info("hello");
     
 Logging.info方法用root logger输出内容，和下面的代码是等价的。
 
@@ -49,9 +51,9 @@ TODO
 
 - Logger.getChild 方法。
 - 利用宏在编译器剔除Log代码。
-- 格式化堆栈信息。
+- <del>格式化堆栈信息。</del>
 - <del>兼容 Haxe 3。</del>
-- 一款好用的日志监视器。
+- [logging-monitor](https://github.com/imcj/logging-monitor)
 - More handler:
 	- FileHandler
 	- NullHandler
@@ -68,12 +70,15 @@ TODO
 	- HTTPHandler
 	- QueueHandler
 
-    
+贡献
+----
+
+* [@imcj](https://github.com/imcj/)
+
 Changelog
 ---------
 
-0.1.2 兼容 Haxe 3。
-
-0.1.1 新增SocketHandler
-
-0.1.0 完成一个基本可用的日志模块。
+* 0.1.3 格式化信息中加入`filename`和`lineno`，log第三个参数可打印堆栈
+* 0.1.2 兼容 Haxe 3。
+* 0.1.1 新增SocketHandler
+* 0.1.0 完成一个基本可用的日志模块。

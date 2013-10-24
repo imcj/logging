@@ -59,6 +59,8 @@ class MockStream extends haxe.io.Output
 
     public function readString(len:Int):String
     {
+        if (len == 0)
+            len = buffer.length;
         var s = buffer.substr(offset, len);
         offset += len;
         return s;

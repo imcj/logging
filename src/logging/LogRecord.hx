@@ -4,6 +4,7 @@ import interpolation.Template;
 
 #if haxe3
 import haxe.ds.StringMap;
+import haxe.CallStack;
 #else
 private typedef StringMap<T> = Hash<T>;
 #end
@@ -18,15 +19,16 @@ class LogRecord
     public var lineno(default, null):Int;
     public var message(default, null):String;
     public var arguments(default, null):StringMap<Dynamic>;
-    public var exc_info(default, null):String;
+    public var stack(default, null):Array<StackItem>;
+    public var stackText:String;
     public var func(default, null):String;
     public var asctime(default, default):String;
     public var created(default, null):Int;
     public var millisecond(default, null):Int;
 
     public function new(name:String, level:Int, pathname:String, lineno:Int,
-                        message:String, arguments:Dynamic)/*,
-                        exc_info:String, fuc:String*/
+                        message:String, arguments:Dynamic,
+                        ?stack:Array<StackItem>) /*fuc:String*/
     {
         this.name = name;
         this.level = level;
@@ -58,8 +60,8 @@ class LogRecord
             this.message = template.safe_substitute(arguments);
         }
         this.arguments = arguments;
+        this.stack = stack;
         /*
-        this.exc_info = exc_info;
         this.func = func;
         */
     }

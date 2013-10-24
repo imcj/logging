@@ -8,6 +8,7 @@ class LoggerTest
     var record:LogRecord;
     var logger:ILogger;
     var stream:MockStream;
+    var handler:IHandler;
 
     @Before
     public function setUp()
@@ -15,7 +16,7 @@ class LoggerTest
         record = new LogRecord("name", 10, "pathname", 0, "${name}", 
             {name: "CJ"});
         stream = new MockStream();
-        var handler = new StreamHandler(stream);
+        handler = new StreamHandler(stream);
         logger = Logging.getLogger("me.imcj.LoggerTest");
         logger.addHandler(handler);
         logger.addFilter(new Filter("me.imcj"));
@@ -31,11 +32,10 @@ class LoggerTest
     }
 
     @Test
-    @TestDebug
     public function testIsEnableFor()
     {
         logger.level = logging.Level.DEBUG;
-        trace(cast(logger, Logger).isEnableFor(logging.Level.INFO));
+        // trace(cast(logger, Logger).isEnableFor(logging.Level.INFO));
     }
 
     @Test
@@ -50,6 +50,24 @@ class LoggerTest
     {
         logger.info("hello");
         Assert.areEqual("INFO me.imcj.LoggerTest hello", stream.readLine());
+    }
+
+    @Test
+    public function testInfoHasLineNumber()
+    {
+        handler.formatter = new Formatter("$levelname $name $pathname:" + 
+                                          "$lineno $message");
+        logger.info("hello");
+        Assert.areEqual("INFO me.imcj.LoggerTest Logger.hx:102 hello", 
+            stream.readLine());
+    }
+
+    @Test
+    @TestDebug
+    public function testInfoHasStack()
+    {
+        logger.info("hello", null, haxe.CallStack.callStack());
+        Assert.areEqual(true, stream.readString(0).length >= 30);
     }
 
     @Test

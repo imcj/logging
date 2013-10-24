@@ -1,5 +1,10 @@
 package logging;
 
+#if haxe3
+import haxe.CallStack;
+#end
+import haxe.PosInfos;
+
 interface ILogger extends IBaseLogger extends IFilterer
 {
     var name(default, null):String;
@@ -13,13 +18,30 @@ interface ILogger extends IBaseLogger extends IFilterer
 
     function addHandler(handler:IHandler):Void;
     function removeHandler(handler:IHandler):Void;
-    function debug(message:String, arguments:Dynamic=null):Void;
-    function info(message:String, arguments:Dynamic=null):Void;
-    function warning(message:String, arguments:Dynamic=null):Void;
-    function warn(message:String, arguments:Dynamic=null):Void;
-    function error(message:String, arguments:Dynamic=null):Void;
-    function log(level:Int, message:String, arguments:Dynamic=null):Void;
-    function critical(message:String, arguments:Dynamic=null):Void;
-    function fatal(message:String, arguments:Dynamic=null):Void;
+
+    function debug(message:String, arguments:Dynamic=null,
+                   ?stack:Array<StackItem>, ?pos:PosInfos):Void;
+
+    function info(message:String, arguments:Dynamic=null,
+                  ?stack:Array<StackItem>, ?pos:PosInfos):Void;
+
+    function warning(message:String, arguments:Dynamic=null,
+                     ?stack:Array<StackItem>, ?pos:PosInfos):Void;
+
+    function warn(message:String, arguments:Dynamic=null,
+                  ?stack:Array<StackItem>, ?pos:PosInfos):Void;
+
+    function error(message:String, arguments:Dynamic=null,
+                   ?stack:Array<StackItem>, ?pos:PosInfos):Void;
+
+    function log(level:Int, message:String, arguments:Dynamic=null,
+                 ?stack:Array<StackItem>, ?pos:PosInfos):Void;
+
+    function critical(message:String, arguments:Dynamic=null,
+                      ?stack:Array<StackItem>, ?pos:PosInfos):Void;
+
+    function fatal(message:String, arguments:Dynamic=null,
+                   ?stack:Array<StackItem>, ?pos:PosInfos):Void;
+    
     function getChild(suffix:String):ILogger;
 }

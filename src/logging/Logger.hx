@@ -1,5 +1,11 @@
 package logging;
 
+import haxe.PosInfos;
+
+#if haxe3
+import haxe.CallStack;
+#end
+
 using logging.ArrayHelper;
 
 class Logger implements ILogger
@@ -82,58 +88,67 @@ class Logger implements ILogger
         return level >= getEffectiveLevel();
     }
 
-    public function debug(message:String, arguments:Dynamic=null):Void
+    public function debug(message:String, arguments:Dynamic=null,
+                          ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
         if (isEnableFor(Level.DEBUG))
-            _log(Level.DEBUG, message, arguments);
+            _log(Level.DEBUG, message, arguments, stack);
     }
 
-    public function info(message:String, arguments:Dynamic=null):Void
+    public function info(message:String, arguments:Dynamic=null,
+                         ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
         if (isEnableFor(Level.INFO))
-            _log(Level.INFO, message, arguments);
+            _log(Level.INFO, message, arguments, stack);
     }
 
-    public function warning(message:String, arguments:Dynamic=null):Void
+    public function warning(message:String, arguments:Dynamic=null,
+                            ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
         if (isEnableFor(Level.WARNING))
-            _log(Level.WARNING, message, arguments);
+            _log(Level.WARNING, message, arguments, stack);
     }
 
-    public function warn(message:String, arguments:Dynamic=null):Void
+    public function warn(message:String, arguments:Dynamic=null,
+                         ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
         if (isEnableFor(Level.WARNING))
-            _log(Level.WARNING, message, arguments);
+            _log(Level.WARNING, message, arguments, stack);
     }
 
-    public function error(message:String, arguments:Dynamic=null):Void
+    public function error(message:String, arguments:Dynamic=null,
+                          ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
         if (isEnableFor(Level.ERROR))
-            _log(Level.ERROR, message, arguments);
+            _log(Level.ERROR, message, arguments, stack);
     }
 
-    public function critical(message:String, arguments:Dynamic=null):Void
+    public function critical(message:String, arguments:Dynamic=null,
+                             ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
         if (isEnableFor(Level.CRITICAL))
-            _log(Level.CRITICAL, message, arguments);
+            _log(Level.CRITICAL, message, arguments, stack);
     }
 
-    public function fatal(message:String, arguments:Dynamic=null):Void
+    public function fatal(message:String, arguments:Dynamic=null,
+                          ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
         if (isEnableFor(Level.CRITICAL))
-            _log(Level.CRITICAL, message, arguments);
+            _log(Level.CRITICAL, message, arguments, stack);
     }
 
-    public function log(level:Int, message:String, arguments:Dynamic=null):Void
+    public function log(level:Int, message:String, arguments:Dynamic=null,
+                        ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
         if (isEnableFor(level))
-            _log(level, message, arguments);
+            _log(level, message, arguments, stack);
     }
 
-    function _log(level:Int, message:String, arguments:Dynamic)
+    function _log(level:Int, message:String, arguments:Dynamic,
+                  ?stack:Array<StackItem>, ?pos:PosInfos)
     {
-        var record:LogRecord = new LogRecord(name, level, ""/*pathname*/, 
-            0/*lineno*/, message, arguments);
+        var record:LogRecord = new LogRecord(name, level, pos.fileName, 
+            pos.lineNumber, message, arguments, stack);
         handle(record);
     }
 
