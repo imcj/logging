@@ -83,10 +83,12 @@ TODO
 ----
 
 * [@imcj](https://github.com/imcj/)
+* [@lovedna](https://github.com/lovedna/)
 
 Changelog
 ---------
 
+* 0.1.4 [@lovedna](https://github.com/lovedna/) 设置全局Handler。
 * 0.1.3 格式化信息中加入`filename`和`lineno`，log第三个参数可打印堆栈
 * 0.1.2 兼容 Haxe 3。
 * 0.1.1 新增SocketHandler
