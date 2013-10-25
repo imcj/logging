@@ -3,6 +3,15 @@ logging
 
 logging是Python logging的移植，再造轮子是因为mconsole没有提供过滤日志的接口。
 
+安装
+----
+
+	$ haxelib install loggin
+
+or
+
+	$ haxelib git logging https://github.com/imcj/logging
+
 使用方法
 --------
 
