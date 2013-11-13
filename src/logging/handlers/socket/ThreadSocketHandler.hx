@@ -24,7 +24,11 @@ class ThreadSocketHandler extends BaseSocketHandler
     function run()
     {
         socket = new Socket();
-        socket.connect(new Host(host), port);
+        try {
+            socket.connect(new Host(host), port);
+        } catch (e:Dynamic) {
+            trace(e);
+        }
 
         while (true) {
             var message = Thread.readMessage(true);

@@ -31,8 +31,8 @@ class FlashSocketHandler extends BaseSocketHandler
         try {
             socket.connect(host, port);
         } catch(e:Dynamic) {
-            // trace("error");
-            // trace(e);
+            trace("error");
+            trace(e);
         }
     }
 
@@ -77,12 +77,12 @@ class FlashSocketHandler extends BaseSocketHandler
 
     function handlerIOError(e)
     {
-        // trace(e);
+        trace(e);
     }
 
     function handlerSecurityError(e)
     {
-        // trace(e);
+        trace(e);
     }
 }
 

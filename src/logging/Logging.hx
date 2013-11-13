@@ -13,13 +13,17 @@ class Logging
     static function initializeRootLogger()
     {
         var logger:ILogger;
-        var handler:IHandler;
         logger = getLogger("");
         if (null == root)
             root = logger;
+        defaultHandler(logger);
+    }
+
+    static function defaultHandler(logger:ILogger)
+    {
+        var handler:IHandler;
         if (0 == logger.handlers.length) {
             handler = new logging.handlers.StreamHandler();
-            logger = Logging.getLogger("");
             logger.addHandler(handler);
         }
     }
@@ -95,6 +99,8 @@ class Logging
             logger = manager.root;
         else
             logger = manager.getLogger(name);
+
+        defaultHandler(logger);
 
         return logger;
     }

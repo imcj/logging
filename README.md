@@ -25,18 +25,15 @@ Logging.info方法用root logger输出内容，和下面的代码是等价的。
 
 	import logging.Logging;
 	
-	var logger = Logging.getLogger()"root");
-	logger.info("hello");
-	
-	logger = Logging.getLogger("");
+	var logger = Logging.getLogger("");
 	logger.info("hello");
 
-Logger.disable 可以禁用这个Logger，关闭Logger的日志输出，更加高级的办法是使用`logging.Filter`对象，之后详细说明。
-
-	import logging.Logging;
+Logger.disable 可以禁用这个Logger，关闭Logger的日志输出，更加灵活的方法是使用`logging.Filter`对象。
 	
     var logger = Logging.getLogger("me.imcj");
     logger.disable = true;
+
+    // 什么都不会输出
     
 利用Socket接收手机发来的日志。
 
@@ -50,7 +47,7 @@ Logger.disable 可以禁用这个Logger，关闭Logger的日志输出，更加�
 	
 服务端
 
-这个是简单版本，用nc监听一个端口接收并输出日志，这是我的开发场景，开发机是mbp，把日志输出到24寸的显示器上。
+这个是简单版本，用nc监听一个端口接收并输出日志，这是我的开发场景，把日志输出到24寸的显示器上。
 
 	$ while true; do nc -l 8800|tee -a debug.log; done
 
@@ -58,6 +55,7 @@ Logger.disable 可以禁用这个Logger，关闭Logger的日志输出，更加�
 TODO
 ----
 
+- 英文文档
 - Logger.getChild 方法。
 - 利用宏在编译器剔除Log代码。
 - <del>格式化堆栈信息。</del>
@@ -65,7 +63,8 @@ TODO
 - [logging-monitor](https://github.com/imcj/logging-monitor)
 - More handler:
 	- FileHandler
-	- NullHandler
+	- <del>NullHandler</del>
+	- <del>NodeHandler</del>
 	- WatchedFileHandler
 	- BaseRotatingHandler
 	- RotatingFileHandler
@@ -88,6 +87,7 @@ TODO
 Changelog
 ---------
 
+* 0.1.5 Add handle NodeHandle, sample.
 * 0.1.4 [@lovedna](https://github.com/lovedna/) 设置全局Handler。
 * 0.1.3 格式化信息中加入`filename`和`lineno`，log第三个参数可打印堆栈
 * 0.1.2 兼容 Haxe 3。

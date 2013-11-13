@@ -4,8 +4,8 @@
     "tags": ["cross","utility","sys"],
     "description": "",
     "contributors": ["imcj"],
-    "releasenote": "port to haxe 3.0",
-    "version": "0.1.3",
+    "releasenote": "logging for haxe",
+    "version": "0.1.5",
     "url": "http://github.com/imcj/logging",
     "dependencies": 
     {
