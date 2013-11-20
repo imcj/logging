@@ -30,7 +30,7 @@ class StreamHandler extends Handler implements IHandler
         var message:String;
         try {
             message = format(record);
-            #if flash
+            #if (flash || as3)
             trace(message);
             #else
             stream.writeString(message);
