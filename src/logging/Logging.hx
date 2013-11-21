@@ -10,70 +10,51 @@ class Logging
     public static var manager:Manager;
     static var root:ILogger;
 
-    static function initializeRootLogger()
-    {
-        var logger:ILogger;
-        logger = getLogger("");
-        if (null == root)
-            root = logger;
-        defaultHandler(logger);
-    }
-
-    static function defaultHandler(logger:ILogger)
-    {
-        var handler:IHandler;
-        if (0 == logger.handlers.length) {
-            handler = new logging.handlers.StreamHandler();
-            logger.addHandler(handler);
-        }
-    }
+    // static function __init__()
+    // {
+    //     var logger = getLogger("");
+    //     logger.addHandler(new logging.handlers.StreamHandler());
+    // }
 
     static public function info(message:String, arguments:Dynamic=null,
                                 ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
-        initializeRootLogger();
         root.info(message, arguments);
     }
 
     static public function debug(message:String, arguments:Dynamic=null,
                                  ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
-        initializeRootLogger();
         root.debug(message, arguments);
     }
 
     static public function warning(message:String, arguments:Dynamic=null,
                                    ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
-        initializeRootLogger();
         root.warning(message, arguments);
     }
 
     static public function warn(message:String, arguments:Dynamic=null,
                                 ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
-        initializeRootLogger();
         root.warn(message, arguments);
     }
 
     static public function error(message:String, arguments:Dynamic=null,
                                  ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
-        initializeRootLogger();
         root.error(message, arguments);
     }
 
     static public function critical(message:String, arguments:Dynamic=null,
                                     ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
-        initializeRootLogger();
         root.critical(message, arguments);
     }
 
     static public function fatal(message:String, arguments:Dynamic=null,
                                  ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
-        initializeRootLogger();
         root.fatal(message, arguments);
     }
 
@@ -81,7 +62,6 @@ class Logging
                                ?stack:Array<StackItem>, arguments:Dynamic=null,
                                ?pos:PosInfos):Void
     {
-        initializeRootLogger();
         root.log(level, message, arguments);
     }
 
@@ -99,8 +79,6 @@ class Logging
             logger = manager.root;
         else
             logger = manager.getLogger(name);
-
-        defaultHandler(logger);
 
         return logger;
     }

@@ -51,7 +51,7 @@ Logger.disable 可以禁用这个Logger，关闭Logger的日志输出，更加�
 
 	$ while true; do nc -l 8800|tee -a debug.log; done
 
-    
+
 TODO
 ----
 
@@ -62,7 +62,7 @@ TODO
 - <del>兼容 Haxe 3。</del>
 - [logging-monitor](https://github.com/imcj/logging-monitor)
 - More handler:
-	- FileHandler
+	- <del>FileHandler</del>
 	- <del>NullHandler</del>
 	- <del>NodeHandler</del>
 	- WatchedFileHandler
@@ -87,6 +87,7 @@ TODO
 Changelog
 ---------
 
+* 0.1.6 Add FileHandler.
 * 0.1.5 Add handle NodeHandle, sample.
 * 0.1.4 [@lovedna](https://github.com/lovedna/) 设置全局Handler。
 * 0.1.3 格式化信息中加入`filename`和`lineno`，log第三个参数可打印堆栈
