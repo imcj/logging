@@ -1,5 +1,6 @@
 <project name="logging" url="http://github.com/imcj/logging" license="MIT">
     <user name="imcj"/>
+    <user name="eamonnfaherty" />
     <description><![CDATA[]]></description>
     <version name="0.1.6"><![CDATA[Now passing through pos object so the line numbers of the code calling]]></version>
     <tag v="cross"/>
