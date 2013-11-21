@@ -92,56 +92,56 @@ class Logger implements ILogger
                           ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
         if (isEnableFor(Level.DEBUG))
-            _log(Level.DEBUG, message, arguments, stack);
+            _log(Level.DEBUG, message, arguments, stack, pos);
     }
 
     public function info(message:String, arguments:Dynamic=null,
                          ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
         if (isEnableFor(Level.INFO))
-            _log(Level.INFO, message, arguments, stack);
+            _log(Level.INFO, message, arguments, stack, pos);
     }
 
     public function warning(message:String, arguments:Dynamic=null,
                             ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
         if (isEnableFor(Level.WARNING))
-            _log(Level.WARNING, message, arguments, stack);
+            _log(Level.WARNING, message, arguments, stack, pos);
     }
 
     public function warn(message:String, arguments:Dynamic=null,
                          ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
         if (isEnableFor(Level.WARNING))
-            _log(Level.WARNING, message, arguments, stack);
+            _log(Level.WARNING, message, arguments, stack, pos);
     }
 
     public function error(message:String, arguments:Dynamic=null,
                           ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
         if (isEnableFor(Level.ERROR))
-            _log(Level.ERROR, message, arguments, stack);
+            _log(Level.ERROR, message, arguments, stack, pos);
     }
 
     public function critical(message:String, arguments:Dynamic=null,
                              ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
         if (isEnableFor(Level.CRITICAL))
-            _log(Level.CRITICAL, message, arguments, stack);
+            _log(Level.CRITICAL, message, arguments, stack, pos);
     }
 
     public function fatal(message:String, arguments:Dynamic=null,
                           ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
         if (isEnableFor(Level.CRITICAL))
-            _log(Level.CRITICAL, message, arguments, stack);
+            _log(Level.CRITICAL, message, arguments, stack, pos);
     }
 
     public function log(level:Int, message:String, arguments:Dynamic=null,
                         ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
         if (isEnableFor(level))
-            _log(level, message, arguments, stack);
+            _log(level, message, arguments, stack, pos);
     }
 
     function _log(level:Int, message:String, arguments:Dynamic,
