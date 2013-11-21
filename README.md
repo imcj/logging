@@ -82,11 +82,13 @@ TODO
 ----
 
 * [@imcj](https://github.com/imcj/)
+* [@eamonnfaherty](https://github.com/eamonnfaherty)
 * [@lovedna](https://github.com/lovedna/)
 
 Changelog
 ---------
 
+* 0.1.6 Now passing through pos object so the line numbers of the code calling
 * 0.1.6 Add FileHandler.
 * 0.1.5 Add handle NodeHandle, sample.
 * 0.1.4 [@lovedna](https://github.com/lovedna/) 设置全局Handler。

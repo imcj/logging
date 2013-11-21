@@ -4,7 +4,7 @@
     "tags": ["cross","utility","sys"],
     "description": "",
     "contributors": ["imcj"],
-    "releasenote": "logging for haxe",
+    "releasenote": "Now passing through pos object so the line numbers of the code calling",
     "version": "0.1.6",
     "url": "http://github.com/imcj/logging",
     "dependencies": 
