@@ -6,7 +6,7 @@ logging是Python logging的移植，再造轮子是因为mconsole没有提供过
 安装
 ----
 
-	$ haxelib install loggin
+	$ haxelib install logging
 
 or
 
