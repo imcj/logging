@@ -30,7 +30,6 @@ class Logger implements ILogger
         handlers = [];
         filterer = new Filterer();
         propagate = true;
-        this.level = level;
     }
 
     public function addFilter(filter:IFilter):Void
