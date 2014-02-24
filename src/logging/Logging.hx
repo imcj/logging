@@ -8,7 +8,6 @@ import haxe.PosInfos;
 class Logging
 {
     public static var manager:Manager;
-    static var root:ILogger;
 
     // static function __init__()
     // {
@@ -19,50 +18,50 @@ class Logging
     static public function info(message:String, arguments:Dynamic=null,
                                 ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
-        root.info(message, arguments);
+        getLogger(null).info(message, arguments);
     }
 
     static public function debug(message:String, arguments:Dynamic=null,
                                  ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
-        root.debug(message, arguments);
+        getLogger(null).debug(message, arguments);
     }
 
     static public function warning(message:String, arguments:Dynamic=null,
                                    ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
-        root.warning(message, arguments);
+        getLogger(null).warning(message, arguments);
     }
 
     static public function warn(message:String, arguments:Dynamic=null,
                                 ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
-        root.warn(message, arguments);
+        getLogger(null).warn(message, arguments);
     }
 
     static public function error(message:String, arguments:Dynamic=null,
                                  ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
-        root.error(message, arguments);
+        getLogger(null).error(message, arguments);
     }
 
     static public function critical(message:String, arguments:Dynamic=null,
                                     ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
-        root.critical(message, arguments);
+        getLogger(null).critical(message, arguments);
     }
 
     static public function fatal(message:String, arguments:Dynamic=null,
                                  ?stack:Array<StackItem>, ?pos:PosInfos):Void
     {
-        root.fatal(message, arguments);
+        getLogger(null).fatal(message, arguments);
     }
 
     static public function log(level:Int, message:String, 
                                ?stack:Array<StackItem>, arguments:Dynamic=null,
                                ?pos:PosInfos):Void
     {
-        root.log(level, message, arguments);
+        getLogger(null).log(level, message, arguments);
     }
 
     static public function getLogger(name:String):ILogger
