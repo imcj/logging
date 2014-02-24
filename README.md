@@ -10,7 +10,7 @@ logging是Python logging的移植，再造轮子是因为mconsole没有提供过
 
 or
 
-	$ haxelib git logging https://github.com/imcj/logging
+	$ haxelib git logging https://github.com/imcj/logging master src
 
 使用方法
 --------
