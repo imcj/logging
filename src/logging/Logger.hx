@@ -30,7 +30,6 @@ class Logger implements ILogger
         handlers = [];
         filterer = new Filterer();
         propagate = true;
-        this.level = level;
     }
 
     public function addFilter(filter:IFilter):Void
@@ -63,11 +62,6 @@ class Logger implements ILogger
     {
         var logger:ILogger = this;
         while (true) {
-            #if cpp
-            #elseif !flash
-            if (null != logger.level)
-                return logger.level;
-            #end
             if (null == logger)
                 break;
                 
