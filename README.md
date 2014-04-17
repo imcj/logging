@@ -1,7 +1,7 @@
 logging
 ========
 
-logging是Python logging的移植，再造轮子是因为mconsole没有提供过滤日志的接口。
+logging是Python logging的移植，相对mconsole提供了过滤日志的功能。
 
 安装
 ----
@@ -17,9 +17,12 @@ or
 
 和所有的日志一样，提供一个静态的输出方法。
 
-	import logging.Logging.info;
+    logging.Logging.info("hello");
 
-    info("hello");
+or
+
+	import logging.Logging.info;
+	info("hello");
     
 Logging.info方法用root logger输出内容，和下面的代码是等价的。
 
@@ -88,6 +91,7 @@ TODO
 Changelog
 ---------
 
+* 0.1.7 FIX HTML5 error and default add StreamHandler.
 * 0.1.6 Now passing through pos object so the line numbers of the code calling
 * 0.1.6 Add FileHandler.
 * 0.1.5 Add handle NodeHandle, sample.
