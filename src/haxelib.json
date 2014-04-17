@@ -4,8 +4,8 @@
     "tags": ["cross","utility","sys"],
     "description": "",
     "contributors": ["imcj", "eamonnfaherty"],
-    "releasenote": "Now passing through pos object so the line numbers of the code calling",
-    "version": "0.1.6",
+    "releasenote": "FIX HTML5 error and default add StreamHandler.",
+    "version": "0.1.7",
     "url": "http://github.com/imcj/logging",
     "dependencies": 
     {
