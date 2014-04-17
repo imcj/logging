@@ -13,7 +13,7 @@ class StreamHandler extends Handler implements IHandler
     {
         super();
         name = 'StreamHandler';
-        #if (php || neko ||cpp)
+        #if (php || neko || cpp)
         if (null == stream)
             stream = Sys.stderr();
         #end
@@ -30,7 +30,7 @@ class StreamHandler extends Handler implements IHandler
         var message:String;
         try {
             message = format(record);
-            #if (flash || as3)
+            #if (flash || as3 || js)
             trace(message);
             #else
             stream.writeString(message);

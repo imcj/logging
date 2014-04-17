@@ -9,11 +9,11 @@ class Logging
 {
     public static var manager:Manager;
 
-    // static function __init__()
-    // {
-    //     var logger = getLogger("");
-    //     logger.addHandler(new logging.handlers.StreamHandler());
-    // }
+    static function __init__()
+    {
+        var logger = getLogger("");
+        logger.addHandler(new logging.handlers.StreamHandler());
+    }
 
     static public function info(message:String, arguments:Dynamic=null,
                                 ?stack:Array<StackItem>, ?pos:PosInfos):Void

@@ -1,0 +1,13 @@
+-main ApplicationMain 
+-lib openfl
+-lib logging
+-cp Source
+-cp ../../src/
+-cp ../../../interpolation/src
+-D tools=1.2.9
+-D web
+-swf-version 11.2
+-swf Export/flash/bin/Html5.swf
+-swf-header 800:600:30:FFFFFF
+-cp Export/flash/haxe
+#--remap nme:flash

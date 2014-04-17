@@ -1,0 +1,16 @@
+-main ApplicationMain 
+-lib openfl
+-lib openfl-html5-dom
+-lib logging
+-cp Source
+-cp ../../src/
+-cp ../../../interpolation/src
+-D tools=1.2.9
+-D html5
+-D web
+-js Export/html5/bin/Html5.js
+-cp Export/html5/haxe
+-D html5
+-D html
+--remap flash:flash
+-debug

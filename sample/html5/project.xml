@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	
+	<meta title="Html5" package="com.example.html5" version="1.0.0" company="Company Name" />
+	<app main="Main" path="Export" file="Html5" />
+	
+	<source path="Source" />
+	<source path="../../src/" />
+	<source path="../../../interpolation/src" />
+	
+	<haxelib name="openfl" />
+	<haxelib name="logging" />
+	
+	<assets path="Assets" rename="assets" exclude="openfl.svg" />
+	<icon path="Assets/openfl.svg" />
+	
+</project>
