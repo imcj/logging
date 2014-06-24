@@ -58,7 +58,7 @@ class Logging
     }
 
     static public function log(level:Int, message:String, 
-                               ?stack:Array<StackItem>, arguments:Dynamic=null,
+                               arguments:Dynamic=null, ?stack:Array<StackItem>,
                                ?pos:PosInfos):Void
     {
         getLogger(null).log(level, message, arguments);
